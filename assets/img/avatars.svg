@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="60" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="avatar1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00FF41;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0099FF;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="avatar2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#DD00FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FF7B1C;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="avatar3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF7B1C;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="avatar4" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00FF41;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#DD00FF;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="avatar5" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0099FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#00FF41;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Avatar 1 -->
+    <circle cx="10" cy="30" r="28" fill="url(#avatar1)"/>
+    <circle cx="10" cy="30" r="26" fill="#0B0F14"/>
+    <circle cx="6" cy="20" r="6" fill="url(#avatar1)"/>
+    <path d="M 2 32 Q 10 38 18 32" stroke="url(#avatar1)" stroke-width="2" fill="none"/>
+
+    <!-- Avatar 2 -->
+    <circle cx="60" cy="30" r="28" fill="url(#avatar2)"/>
+    <circle cx="60" cy="30" r="26" fill="#0B0F14"/>
+    <circle cx="56" cy="20" r="6" fill="url(#avatar2)"/>
+    <path d="M 52 32 Q 60 38 68 32" stroke="url(#avatar2)" stroke-width="2" fill="none"/>
+
+    <!-- Avatar 3 -->
+    <circle cx="110" cy="30" r="28" fill="url(#avatar3)"/>
+    <circle cx="110" cy="30" r="26" fill="#0B0F14"/>
+    <circle cx="106" cy="20" r="6" fill="url(#avatar3)"/>
+    <path d="M 102 32 Q 110 38 118 32" stroke="url(#avatar3)" stroke-width="2" fill="none"/>
+
+    <!-- Avatar 4 -->
+    <circle cx="160" cy="30" r="28" fill="url(#avatar4)"/>
+    <circle cx="160" cy="30" r="26" fill="#0B0F14"/>
+    <circle cx="156" cy="20" r="6" fill="url(#avatar4)"/>
+    <path d="M 152 32 Q 160 38 168 32" stroke="url(#avatar4)" stroke-width="2" fill="none"/>
+
+    <!-- Avatar 5 -->
+    <circle cx="210" cy="30" r="28" fill="url(#avatar5)"/>
+    <circle cx="210" cy="30" r="26" fill="#0B0F14"/>
+    <circle cx="206" cy="20" r="6" fill="url(#avatar5)"/>
+    <path d="M 202 32 Q 210 38 218 32" stroke="url(#avatar5)" stroke-width="2" fill="none"/>
+</svg>

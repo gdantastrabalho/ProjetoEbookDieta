@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00FF41;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#DD00FF;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Sombra 3D -->
+    <ellipse cx="200" cy="480" rx="80" ry="15" fill="rgba(0,0,0,0.3)"/>
+
+    <!-- Capa do Ebook -->
+    <g transform="perspective(1000px) rotateY(-15deg) rotateX(5deg)">
+        <!-- Spine (lateral) -->
+        <rect x="150" y="50" width="30" height="350" fill="#0a0a0a"/>
+
+        <!-- Front (frente) -->
+        <rect x="180" y="50" width="200" height="350" fill="url(#grad1)"/>
+
+        <!-- Texto na capa -->
+        <rect x="185" y="55" width="190" height="340" fill="rgba(11,15,20,0.8)"/>
+
+        <text x="280" y="150" font-size="32" font-weight="bold" fill="#00FF41" text-anchor="middle" font-family="sans-serif">
+            DIETA
+        </text>
+        <text x="280" y="190" font-size="32" font-weight="bold" fill="#DD00FF" text-anchor="middle" font-family="sans-serif">
+            BASE
+        </text>
+
+        <line x1="200" y1="210" x2="360" y2="210" stroke="#00FF41" stroke-width="2"/>
+
+        <text x="280" y="250" font-size="14" fill="#E0E0E0" text-anchor="middle" font-family="sans-serif">
+            Guia Prático para
+        </text>
+        <text x="280" y="270" font-size="14" fill="#E0E0E0" text-anchor="middle" font-family="sans-serif">
+            Iniciantes em
+        </text>
+        <text x="280" y="290" font-size="14" fill="#E0E0E0" text-anchor="middle" font-family="sans-serif">
+            Alimentação Saudável
+        </text>
+
+        <text x="280" y="360" font-size="12" fill="#FF7B1C" text-anchor="middle" font-family="sans-serif">
+            7 Capítulos + 4 Bônus
+        </text>
+    </g>
+</svg>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout - Dieta Base">
+    <title>Checkout | Dieta Base</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="checkout-page">
+    <div class="checkout-container">
+        <!-- RESUMO DO PEDIDO -->
+        <div class="checkout-summary">
+            <div class="summary-header">
+                <h2>Seu Pedido</h2>
+            </div>
+
+            <div class="summary-items">
+                <div class="summary-item">
+                    <span class="item-name">Ebook Dieta Base</span>
+                    <span class="item-price">R$ 47,00</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-name">+ Cardápio 14 dias PDF</span>
+                    <span class="item-price">Incluído</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-name">+ Cardápio 28 dias PDF</span>
+                    <span class="item-price">Incluído</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-name">+ Guia de Substituições</span>
+                    <span class="item-price">Incluído</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-name">+ Planner Semanal</span>
+                    <span class="item-price">Incluído</span>
+                </div>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <span class="total-price">R$ 47,00</span>
+            </div>
+
+            <div class="summary-installment">
+                <p>Ou em <strong>3x de R$ 19,00</strong> sem juros</p>
+            </div>
+
+            <div class="summary-guarantee">
+                <p>✓ <strong>Garantia de 15 dias</strong></p>
+                <p>Não gostou? Devolvemos seu dinheiro.</p>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <div class="checkout-form">
+            <h1>Finalize sua compra</h1>
+
+            <form id="checkoutForm" onsubmit="submitCheckout(event)">
+                <!-- DADOS PESSOAIS -->
+                <div class="form-section">
+                    <h3>Seus Dados</h3>
+
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Digite seu nome" 
+                            required
+                            onblur="validateName()"
+                        >
+                        <span class="form-error" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="seu@email.com" 
+                            required
+                            onblur="validateEmail()"
+                        >
+                        <span class="form-error" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf">CPF (opcional)</label>
+                        <input 
+                            type="text" 
+                            id="cpf" 
+                            name="cpf" 
+                            placeholder="000.000.000-00"
+                            onblur="formatCPF()"
+                        >
+                        <span class="form-error" id="cpfError"></span>
+                    </div>
+                </div>
+
+                <!-- MÉTODO DE PAGAMENTO -->
+                <div class="form-section">
+                    <h3>Método de Pagamento</h3>
+
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="pix" checked>
+                            <span class="radio-label">
+                                <strong>PIX</strong>
+                                <small>Transferência instantânea (Acesso imediato)</small>
+                            </span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="paymentMethod" value="card" onchange="toggleCardFields()">
+                            <span class="radio-label">
+                                <strong>Cartão de Crédito</strong>
+                                <small>Parcelamento em até 3x</small>
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- CAMPOS DE CARTÃO -->
+                    <div id="cardFields" style="display: none;">
+                        <div class="form-group">
+                            <label for="cardNumber">Número do Cartão *</label>
+                            <input 
+                                type="text" 
+                                id="cardNumber" 
+                                name="cardNumber" 
+                                placeholder="0000 0000 0000 0000"
+                                maxlength="19"
+                                onblur="formatCardNumber()"
+                            >
+                            <span class="form-error" id="cardNumberError"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Validade *</label>
+                                <input 
+                                    type="text" 
+                                    id="cardExpiry" 
+                                    name="cardExpiry" 
+                                    placeholder="MM/AA"
+                                    maxlength="5"
+                                    onblur="formatExpiry()"
+                                >
+                                <span class="form-error" id="cardExpiryError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardCVV">CVV *</label>
+                                <input 
+                                    type="text" 
+                                    id="cardCVV" 
+                                    name="cardCVV" 
+                                    placeholder="000"
+                                    maxlength="4"
+                                >
+                                <span class="form-error" id="cardCVVError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="installments">Parcelamento</label>
+                            <select id="installments" name="installments">
+                                <option value="1">À vista (R$ 47,00)</option>
+                                <option value="2">2x de R$ 23,50</option>
+                                <option value="3" selected>3x de R$ 19,00</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TERMOS -->
+                <div class="form-section">
+                    <div class="form-group checkbox">
+                        <input 
+                            type="checkbox" 
+                            id="terms" 
+                            name="terms" 
+                            required
+                        >
+                        <label for="terms">
+                            Concordo com os <a href="termos.html" target="_blank">Termos de Uso</a> e <a href="privacidade.html" target="_blank">Política de Privacidade</a>
+                        </label>
+                        <span class="form-error" id="termsError"></span>
+                    </div>
+                </div>
+
+                <!-- BOTÃO SUBMIT -->
+                <button type="submit" class="btn btn-primary btn-large btn-checkout">
+                    ✓ Finalizar Compra - R$ 47,00
+                </button>
+            </form>
+
+            <!-- TRUST SIGNALS -->
+            <div class="checkout-trust">
+                <p>🔒 Seus dados estão protegidos</p>
+                <p>✓ Compra segura e criptografada</p>
+                <p>✓ Acesso imediato ao PDF</p>
+            </div>
+
+            <!-- VOLTAR -->
+            <div class="checkout-back">
+                <a href="index.html">← Voltar para a página inicial</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE SUCESSO -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <h2>🎉 Compra Realizada com Sucesso!</h2>
+            </div>
+
+            <div class="modal-body">
+                <p class="modal-message">
+                    Parabéns! Você agora tem acesso ao Dieta Base!
+                </p>
+
+                <div class="success-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <div>
+                            <strong>Email de Confirmação</strong>
+                            <p>Você receberá um email em segundos com os links para download</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <div>
+                            <strong>Baixe os Arquivos</strong>
+                            <p>Clique nos links e baixe o Ebook + todos os 4 bônus</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <div>
+                            <strong>Comece Agora</strong>
+                            <p>Leia o PDF e dê o primeiro passo na sua transformação</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-guarantee">
+                    <h3>Sobre a Garantia</h3>
+                    <p>Se em 15 dias você não estiver satisfeito, pode pedir reembolso. Acesse seu painel e clique em "Solicitar Reembolso".</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                    Voltar para a Página Inicial
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
